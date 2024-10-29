@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import * as fabric from "fabric"; // v6
+import { fabric } from "fabric";
 
 import {
   CustomFabricObject,
@@ -97,19 +97,14 @@ export const handleImageUpload = ({
   syncShapeInStorage,
 }: ImageUpload) => {
   const reader = new FileReader();
-
-  reader.onload = () => {
+  reader.onload = (e) => {
     fabric.Image.fromURL(reader.result as string, (img) => {
       img.scaleToWidth(200);
       img.scaleToHeight(200);
-
       canvas.current.add(img);
-
       // @ts-ignore
       img.objectId = uuidv4();
-
       shapeRef.current = img;
-
       syncShapeInStorage(img);
       canvas.current.requestRenderAll();
     });

@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
+import { handleImageUpload } from "@/lib/shapes";
 
 const ShapesMenu = ({
   item,
@@ -21,7 +22,6 @@ const ShapesMenu = ({
   const isDropdownElem = item?.value.some(
     (elem) => elem?.value === activeElement?.value
   );
-
   return (
     <>
       <DropdownMenu>

@@ -7,6 +7,7 @@ const ActiveUsers = () => {
   const users = useOthers();
   const currentUser = useSelf();
   const hasMoreUsers = users.length > 3;
+
   const memoizedUser = useMemo(
     () => (
       <div

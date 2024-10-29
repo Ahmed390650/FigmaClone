@@ -151,10 +151,10 @@ const Live = ({ canvasRef }: props): React.JSX.Element => {
       onPointerLeave={HandlePointerLeave}
       onPointerMove={HandlePointerMove}
       onPointerUp={handlePointerUp}
-      className='flex h-[100vh] w-full items-center justify-center text-center '
+      id='canvas'
+      className='relative flex h-full w-full flex-1 items-center justify-center'
     >
       <canvas ref={canvasRef} />
-      {/* Render the reactions */}
       {reactions.map((reaction, i) => (
         <FlyingReaction
           key={i}

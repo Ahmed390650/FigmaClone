@@ -1,4 +1,4 @@
-import * as fabric from "fabric"; // v6
+import { fabric } from "fabric";
 import { v4 as uuid4 } from "uuid";
 
 import {
@@ -195,7 +195,7 @@ export const handleCanvasMouseUp = ({
   if (!canvas.isDrawingMode) {
     setTimeout(() => {
       setActiveElement(defaultNavElement);
-    }, 700);
+    }, 1000);
   }
 };
 
@@ -341,10 +341,10 @@ export const renderCanvas = ({
   activeObjectRef,
 }: RenderCanvas) => {
   // clear canvas
-  fabricRef.current?.clear();
 
+  fabricRef.current?.clear();
   // render all objects on canvas
-  Array.from(canvasObjects, ([objectId, objectData]) => {
+  Array.from(canvasObjects || [], ([objectId, objectData]) => {
     /**
      * enlivenObjects() is used to render objects on canvas.
      * It takes two arguments:
