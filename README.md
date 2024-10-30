@@ -1,8 +1,6 @@
 <div align="center">
   <br />
-    <a href="https://youtu.be/oKIThIihv60" target="_blank">
       <img src="https://github.com/JavaScript-Mastery-Pro/figma-ts/assets/151519281/e03dc22d-0f45-464b-9dc3-f01f07906bee" alt="Project Banner">
-    </a>
   <br />
 
   <div>
@@ -13,9 +11,6 @@
 
   <h3 align="center">Real Time Figma Clone</h3>
 
-   <div align="center">
-     Build this project step by step with our detailed tutorial on <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a> YouTube. Join the JSM family!
-    </div>
 </div>
 
 ## 📋 <a name="table">Table of Contents</a>
@@ -28,9 +23,7 @@
 6. 🔗 [Links](#links)
 7. 🚀 [More](#more)
 
-## 🚨 Tutorial
-
-This repository contains the code corresponding to an in-depth tutorial available on our YouTube channel, <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a>. 
+This repository contains the code corresponding to an in-depth tutorial available on our YouTube channel, <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a>.
 
 If you prefer visual learning, this is the perfect resource for you. Follow our tutorial to learn how to build projects like these step-by-step in a beginner-friendly manner!
 
@@ -41,8 +34,6 @@ If you prefer visual learning, this is the perfect resource for you. Follow our 
 A minimalistic Figma clone to show how to add real-world features like live collaboration with cursor chat, comments, reactions, and drawing designs (shapes, image upload) on the canvas using fabric.js.
 
 If you're getting started and need assistance or face any bugs, join our active Discord community with over 27k+ members. It's a place where people help each other out.
-
-<a href="https://discord.com/invite/n6EdbFJ" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/618f4872-1e10-42da-8213-1d69e486d02e" /></a>
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
@@ -77,7 +68,7 @@ If you're getting started and need assistance or face any bugs, join our active 
 
 👉 **Deleting, Scaling, Moving, Clearing, Exporting Canvas**: Offers a range of functions for managing design elements, including deletion, scaling, moving, clearing the canvas, and exporting the final design for external use.
 
-and many more, including code architecture, advanced react hooks, and reusability 
+and many more, including code architecture, advanced react hooks, and reusability
 
 ## <a name="quick-start">🤸 Quick Start</a>
 
@@ -490,17 +481,17 @@ type Props = {
 
 const PinnedComposer = ({ onComposerSubmit, ...props }: Props) => {
   return (
-    <div className="absolute flex gap-4" {...props}>
-      <div className="select-none relative w-9 h-9 shadow rounded-tl-md rounded-tr-full rounded-br-full rounded-bl-full bg-white flex justify-center items-center">
+    <div className='absolute flex gap-4' {...props}>
+      <div className='relative flex h-9 w-9 select-none items-center justify-center rounded-bl-full rounded-br-full rounded-tl-md rounded-tr-full bg-white shadow'>
         <Image
           src={`https://liveblocks.io/avatars/avatar-${Math.floor(Math.random() * 30)}.png`}
-          alt="someone"
+          alt='someone'
           width={28}
           height={28}
-          className="rounded-full"
+          className='rounded-full'
         />
       </div>
-      <div className="shadow bg-white rounded-lg flex flex-col text-sm min-w-96 overflow-hidden p-2">
+      <div className='flex min-w-96 flex-col overflow-hidden rounded-lg bg-white p-2 text-sm shadow'>
         {/**
          * We're using the Composer component to create a new comment.
          * Liveblocks provides a Composer component that allows to
@@ -512,7 +503,7 @@ const PinnedComposer = ({ onComposerSubmit, ...props }: Props) => {
           onComposerSubmit={onComposerSubmit}
           autoFocus={true}
           onKeyUp={(e) => {
-            e.stopPropagation()
+            e.stopPropagation();
           }}
         />
       </div>
@@ -604,7 +595,7 @@ const NewThreadCursor = ({ display }: { display: boolean }) => {
     // Portal.Root is used to render a component outside of its parent component
     <Portal.Root>
       <div
-        className="pointer-events-none fixed left-0 top-0 h-9 w-9 cursor-grab select-none rounded-bl-full rounded-br-full rounded-tl-md rounded-tr-full bg-white shadow-2xl"
+        className='pointer-events-none fixed left-0 top-0 h-9 w-9 cursor-grab select-none rounded-bl-full rounded-br-full rounded-tl-md rounded-tr-full bg-white shadow-2xl'
         style={{
           transform: `translate(${coords.x}px, ${coords.y}px)`,
         }}
@@ -627,7 +618,12 @@ export default NewThreadCursor;
 import { useCallback, useRef } from "react";
 import { ThreadData } from "@liveblocks/client";
 
-import { ThreadMetadata, useEditThreadMetadata, useThreads, useUser } from "@/liveblocks.config";
+import {
+  ThreadMetadata,
+  useEditThreadMetadata,
+  useThreads,
+  useUser,
+} from "@/liveblocks.config";
 import { useMaxZIndex } from "@/lib/useMaxZIndex";
 
 import { PinnedThread } from "./PinnedThread";
@@ -654,7 +650,11 @@ export const CommentsOverlay = () => {
       {threads
         .filter((thread) => !thread.metadata.resolved)
         .map((thread) => (
-          <OverlayThread key={thread.id} thread={thread} maxZIndex={maxZIndex} />
+          <OverlayThread
+            key={thread.id}
+            thread={thread}
+            maxZIndex={maxZIndex}
+          />
         ))}
     </div>
   );
@@ -702,7 +702,7 @@ const OverlayThread = ({ thread, maxZIndex }: OverlayThreadProps) => {
     <div
       ref={threadRef}
       id={`thread-${thread.id}`}
-      className="absolute left-0 top-0 flex gap-5"
+      className='absolute left-0 top-0 flex gap-5'
       style={{
         transform: `translate(${thread.metadata.x}px, ${thread.metadata.y}px)`,
       }}
@@ -809,26 +809,3 @@ export const PinnedThread = ({ thread, onFocus, ...props }: Props) => {
 
 - [Assets](https://drive.google.com/file/d/17tRs0sEiIsCeTYEXhWEdHMrTshuz2oYf/view?usp=sharing)
 - [Components](https://drive.google.com/file/d/1bha-40vlGMIPW9bTRUgHD_SEmT9ZA38S/view?usp=sharing)
-
-## <a name="more">🚀 More</a>
-
-**Advance your skills with Next.js 14 Pro Course**
-
-Enjoyed creating this project? Dive deeper into our PRO courses for a richer learning adventure. They're packed with detailed explanations, cool features, and exercises to boost your skills. Give it a go!
-
-<a href="https://jsmastery.pro/next14" target="_blank">
-<img src="https://github.com/sujatagunale/EasyRead/assets/151519281/557837ce-f612-4530-ab24-189e75133c71" alt="Project Banner">
-</a>
-
-<br />
-<br />
-
-**Accelerate your professional journey with the Expert Training program**
-
-And if you're hungry for more than just a course and want to understand how we learn and tackle tech challenges, hop into our personalized masterclass. We cover best practices, different web skills, and offer mentorship to boost your confidence. Let's learn and grow together!
-
-<a href="https://www.jsmastery.pro/masterclass" target="_blank">
-<img src="https://github.com/sujatagunale/EasyRead/assets/151519281/fed352ad-f27b-400d-9b8f-c7fe628acb84" alt="Project Banner">
-</a>
-
-#
