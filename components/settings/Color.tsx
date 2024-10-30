@@ -24,6 +24,8 @@ const Color = ({
       <input
         type='color'
         value={attribute}
+        id='z'
+        name='colorChange'
         ref={inputRef}
         onChange={(e) => handleInputChange(attributeType, e.target.value)}
       />
